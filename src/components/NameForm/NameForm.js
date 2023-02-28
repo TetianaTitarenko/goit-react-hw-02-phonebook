@@ -1,5 +1,6 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { nanoid } from 'nanoid'
 
 const FormSchema = Yup.object().shape({
     name: Yup.string()
@@ -20,11 +21,13 @@ const NameForm = ({onSave}) => {
         number: ''
       }} 
       validationSchema={FormSchema}
-      onSubmit={value => {
+      onSubmit={(value, actions) => {
       onSave({
         ...value,
-        // id: nanoid(),
-      })}}>
+        id: nanoid(),
+      });
+        actions.resetForm();
+      }}>
         <Form>
             <label>
                 Name 
