@@ -2,6 +2,7 @@ import { Component } from "react";
 import NameForm from "./NameForm/NameForm";
 import Contacts from "./Contacts/Contacts";
 import Filter from "./Filter/Filter";
+import Layout from "./Layout";
 
 class App extends Component {
   state = {
@@ -40,11 +41,11 @@ class App extends Component {
     const visibleContacts = this.state.contacts.filter(contact => contact.name.toLowerCase().includes(normFiltr))
 
   return (
-    <div>
+    <Layout>
       <NameForm onSave={this.addContact}/>
       <Filter value={this.state.filter} onChange={this.changeFilter} />
       <Contacts contacts={visibleContacts} onDelete={this.deleteContact} />
-    </div>
+    </Layout>
   );
   };
 };
