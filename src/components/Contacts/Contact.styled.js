@@ -9,12 +9,10 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 width: 400px;
-margin: 5px;
+margin:  5px;
 `;
 
-export const Btn = styled.button`
-
-`
+export const Btn = styled.button
 
 
  
